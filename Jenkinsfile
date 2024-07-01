@@ -14,7 +14,7 @@ pipeline {
           stage('Checkout') {
             steps {
                 git branch: 'main', url: 'https://github.com/Swetha0602/flask-app.git'
-                sh 'git pull'
+                sh 'git pull origin main'
             }
           }
           stage('Bandit Scan') {
