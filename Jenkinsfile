@@ -32,6 +32,28 @@ pipeline {
                 }
             }
           }
+         stage('Fossid Scan') {
+               steps {
+                   script {
+                       sh ''' python3 workbench-agent.py \
+                	    --api_url http://tefossid.tataelxsi.co.in/api.php\
+                        --api_user 37786 \
+                        --api_token EJWIALQVINDe7D07IFZxC6Ee1uwoFh67biGNGXdPvm \
+                        --project_code ${JOB_NAME} \
+                        --scan_code jenkins_fossid:${BUILD_NUMBER} \
+                        --path ${WORKSPACE} \
+                        --limit 1 \
+                        --auto_identification_detect_declaration \
+                        --auto_identification_detect_copyright \
+                        --auto_identification_resolve_pending_ids \
+                        --delta_only \
+                        --log DEBUG \
+                        --projects_get_policy_warnings_info \
+                        --path-result fossid/ 
+                        '''
+                   }
+               }
+         }
         stage('Build Docker Image') {
             steps {
                 script {
