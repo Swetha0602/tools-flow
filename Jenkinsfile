@@ -35,7 +35,7 @@ pipeline {
          stage('Fossid Scan') {
                steps {
                    script {
-                       sh ''' python3 workbench-agent.py \
+                       sh ''' python3 final-flow/workbench-agent.py \
                 	    --api_url http://tefossid.tataelxsi.co.in/api.php\
                         --api_user 37786 \
                         --api_token EJWIALQVINDe7D07IFZxC6Ee1uwoFh67biGNGXdPvm \
