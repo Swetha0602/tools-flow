@@ -17,6 +17,12 @@ pipeline {
                 sh 'git pull origin main'
             }
           }
+         stage('Pre SAST') {
+             steps {
+                 sh 'gitleaks version'
+                 sh 'gitleaks detect --source . -v || true'
+             }
+         }
           stage('Bandit Scan') {
             steps {
                 script {
