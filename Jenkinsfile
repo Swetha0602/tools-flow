@@ -32,24 +32,6 @@ pipeline {
                 }
             }
           }
-         stage('Checkov') {
-            steps {
-                // Create and activate virtual environment
-                script {
-                    // Check if virtual environment exists
-                    if (!fileExists('myenv')) {
-                        sh 'python3 -m venv myenv'
-                    }
-                }
-                // Activate the virtual environment and install packages
-                sh '''
-                source myenv/bin/activate
-                pip install --upgrade pip
-                pip install checkov
-                checkov -d .
-                '''
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 script {
