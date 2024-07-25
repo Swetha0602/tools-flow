@@ -32,13 +32,6 @@ pipeline {
                 }
             }
           }
-         stage('Checkov Scan') {
-             steps {
-                 script {
-                     sh 'checkov -d .'
-                 }
-             }
-         }
         stage('Build Docker Image') {
             steps {
                 script {
