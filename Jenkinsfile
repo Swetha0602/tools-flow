@@ -35,6 +35,9 @@ pipeline {
          stage('Checkov Scan') {
              steps {
                  script {
+                     sh 'python3 -m venv myenv'
+                     sh 'source myenv/bin/activate'
+                     sh 'checkov --version'
                      sh 'checkov -d .'
                  }
              }
