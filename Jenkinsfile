@@ -1,11 +1,11 @@
 pipeline {
     agent any
     environment {
-        GITHUB_CREDS=credentials('Github_creds')
+        GITHUB_CREDS=credentials('swetha-github-creds')
         IMAGE_NAME= 'final-flow'
         IMAGE_REPO='sriswetha06/final-flow'
         IMAGE_VERSION='v2'
-        DOCKERHUB_CREDS=credentials('dockerhub-creds')
+        DOCKERHUB_CREDS=credentials('swetha-docker-creds')
         COSIGN_PASSWORD=credentials('cosign-password')
         COSIGN_PRIVATE_KEY=credentials('cosign-private-key')
         COSIGN_PUBLIC_KEY=credentials('cosign-public-key')
